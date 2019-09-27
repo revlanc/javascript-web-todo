@@ -4,9 +4,9 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx']
   },
 
   devServer: {
@@ -37,8 +37,7 @@ module.exports = {
       template: 'src/index.html'
     }),
     new DefinePlugin({
-      FETCH_URL: JSON.stringify("http://localhost:3000/todos")
+      FETCH_URL: JSON.stringify('http://localhost:3000/todos')
     })
   ]
-
-}
+};
