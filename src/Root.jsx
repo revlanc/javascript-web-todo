@@ -4,8 +4,29 @@ import styled, { createGlobalStyle } from 'styled-components';
 import App from './pages/App';
 import Home from './pages/Home';
 import About from './pages/About';
+import Navigation from './components/Navigation';
 import Header from './components/Header';
 import TodoContextProvider from './context/TodoContextProvider';
+
+const Root = () => {
+  return (
+    <>
+      <GlobalStyle />
+      <TodoContextProvider>
+        <Wrapper>
+          <Router>
+            <Header />
+            <Navigation />
+            <Route path="/" exact component={Home} />
+            <Route path="/todo/" component={App} />
+            <Route path="/about/" component={About} />
+          </Router>
+        </Wrapper>
+      </TodoContextProvider>
+    </>
+  );
+};
+export default Root;
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -22,23 +43,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
+  margin: 5rem auto;
+  max-width: 55rem;
+  min-width: 45rem;
+  border-radius: 10px;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
 `;
-
-const Root = () => {
-  return (
-    <>
-      <GlobalStyle />
-      <Router>
-        <Wrapper>
-          <TodoContextProvider>
-            <Header />
-            <Route path="/" exact component={Home} />
-            <Route path="/todo/" component={App} />
-            <Route path="/about/" component={About} />
-          </TodoContextProvider>
-        </Wrapper>
-      </Router>
-    </>
-  );
-};
-export default Root;
