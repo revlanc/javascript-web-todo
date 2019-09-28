@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import App from './pages/App';
 import Home from './pages/Home';
 import About from './pages/About';
+import NoMatch from './pages/NoMatch';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import TodoContextProvider from './context/TodoContextProvider';
@@ -17,9 +18,12 @@ const Root = () => {
           <Router>
             <Header />
             <Navigation />
-            <Route path="/" exact component={Home} />
-            <Route path="/todo/" component={App} />
-            <Route path="/about/" component={About} />
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/todo/" component={App} />
+              <Route path="/about/" component={About} />
+              <Route component={NoMatch} />
+            </Switch>
           </Router>
         </Wrapper>
       </TodoContextProvider>
