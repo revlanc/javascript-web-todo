@@ -6,23 +6,6 @@ import { useTodoContext, useDispatch } from '../context/TodoContextProvider';
 import CONFIGS from '../configs/configs';
 const { MAIN_COLOR } = CONFIGS;
 
-const StyledLi = styled(Li)`
-  text-decoration: ${({ textDeco }) =>
-    textDeco === 'done' ? 'line-through' : 'none'};
-  text-decoration-color: black;
-  color: ${MAIN_COLOR};
-
-  span {
-    &:hover {
-      cursor: pointer;
-    }
-  }
-`;
-
-const Ul = styled.ul`
-  padding-left: 2rem;
-`;
-
 const TodoList = () => {
   const { todos } = useTodoContext();
   const dispatch = useDispatch();
@@ -51,3 +34,19 @@ const TodoList = () => {
 };
 
 export default TodoList;
+
+const StyledLi = styled(Li)`
+  text-decoration: ${({ textDeco }) => (textDeco === 'done' ? 'line-through' : 'none')};
+  text-decoration-color: black;
+  color: ${MAIN_COLOR};
+
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`;
+
+const Ul = styled.ul`
+  padding-left: 2rem;
+`;

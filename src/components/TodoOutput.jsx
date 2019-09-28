@@ -4,6 +4,30 @@ import Button from '../atomicComponents/Button';
 import TodoList from './TodoList';
 import PropTypes from 'prop-types';
 
+const TodoOutput = () => {
+  const [folded, setFolded] = useState(false);
+
+  const toggleLists = useCallback(() => {
+    setFolded(!folded);
+  }, [folded]);
+
+  return (
+    <Wrapper>
+      <div>
+        <h3>할 일 목록</h3>
+        <Button onClick={toggleLists}>{folded ? '펼치기' : '접기'}</Button>
+      </div>
+      {!folded && <TodoList />}
+    </Wrapper>
+  );
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func
+};
+
+export default TodoOutput;
+
 const Wrapper = styled.div`
   width: 100%;
   max-width: inherit;
@@ -22,27 +46,3 @@ const Wrapper = styled.div`
     font-weight: bold;
   }
 `;
-
-const TodoOutput = () => {
-  const [listVisible, setListVisible] = useState(true);
-
-  const toggleLists = useCallback(() => {
-    setListVisible(!listVisible);
-  }, [listVisible]);
-
-  return (
-    <Wrapper>
-      <div>
-        <h3>할 일 목록</h3>
-        <Button onClick={toggleLists}>{listVisible ? '접기' : '펼치기'}</Button>
-      </div>
-      {listVisible && <TodoList />}
-    </Wrapper>
-  );
-};
-
-Button.propTypes = {
-  onClick: PropTypes.func
-};
-
-export default TodoOutput;

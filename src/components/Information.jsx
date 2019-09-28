@@ -8,14 +8,12 @@ const Typography = styled.div`
 `;
 
 const Information = () => {
-  const { loading, warningVisible } = useTodoContext();
+  const { loading, error } = useTodoContext();
 
   return (
     <>
       {loading && <Typography>로딩중..</Typography>}
-      {warningVisible && (
-        <WarningModal>네트워크 에러가 발생했습니다</WarningModal>
-      )}
+      {error && <WarningModal>네트워크 에러가 발생했습니다</WarningModal>}
     </>
   );
 };
