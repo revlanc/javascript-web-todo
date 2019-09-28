@@ -6,13 +6,6 @@ import { useDispatch } from '../context/TodoContextProvider';
 import useInput from '../hooks/useInput';
 import PropTypes from 'prop-types';
 
-const Form = styled.form`
-  display: flex;
-  width: 100%;
-  max-width: inherit;
-  min-width: inherit;
-`;
-
 const TodoInput = () => {
   const dispatch = useDispatch();
   const [state, handleChange, restore] = useInput();
@@ -21,6 +14,7 @@ const TodoInput = () => {
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
+      if (!todoInput) return;
       dispatch({ type: 'ADD_TODO', payload: todoInput });
       restore('todoInput');
     },
@@ -28,7 +22,7 @@ const TodoInput = () => {
   );
 
   return (
-    <Form onSubmit={handleSubmit} action="/">
+    <Form onSubmit={handleSubmit}>
       <Input
         placeholder="할일을 적어주세요"
         name="todoInput"
@@ -40,8 +34,15 @@ const TodoInput = () => {
   );
 };
 
+export default TodoInput;
+
+const Form = styled.form`
+  display: flex;
+  width: 100%;
+  max-width: inherit;
+  min-width: inherit;
+`;
+
 Form.propTypes = {
   onSubmit: PropTypes.func
 };
-
-export default TodoInput;
