@@ -53,7 +53,7 @@
 
 useState, useReducer, useContext의 3가지 hooks로 상태를 관리할 때, 각각의 장단점에 대한 고민이 많았습니다.
 
-#### 3-1-1. Reducer만 사용하는 경우
+### 3-1-1. Reducer만 사용하는 경우
 
 - **<각 컴포넌트 역할>**
   - **reducer : 로직 보유 함수**
@@ -67,9 +67,9 @@ useState, useReducer, useContext의 3가지 hooks로 상태를 관리할 때, �
   (바닐라에서 어떤 이벤트가 트리거 되었을 때, model에 이벤트 발생 내용을 메시지로 전달해주는 것과 비슷한 느낌)
 
 
-#### 3-1-2. Context만 사용하는 경우
+### 3-1-2. Context만 사용하는 경우
 
-##### case1 : Provider를 분리하지 않는 경우
+#### case1 : Provider를 분리하지 않는 경우
 
 - **<각 컴포넌트 역할>**
   - **context : 단순 전역 객체**
@@ -83,7 +83,7 @@ useState, useReducer, useContext의 3가지 hooks로 상태를 관리할 때, �
 - state를 provider로 분리할 수 있음(분리하는게 context의 역할을 보다 명확하게 하는 것 같아서 좋아보입니다)
 
 
-##### case 2 : Provider 분리하고 로직을 view에 위치하는 경우
+#### case 2 : Provider 분리하고 로직을 view에 위치하는 경우
 
 - **<각 컴포넌트 역할>**
   - **context : 전역 객체, state보유**
@@ -97,7 +97,7 @@ useState, useReducer, useContext의 3가지 hooks로 상태를 관리할 때, �
 
 
 
-##### case 3: Provider 분리하고 로직을 Provider에 위치하는 경우
+#### case 3: Provider 분리하고 로직을 Provider에 위치하는 경우
 
 - **<각 컴포넌트 역할>**
 
@@ -111,7 +111,7 @@ useState, useReducer, useContext의 3가지 hooks로 상태를 관리할 때, �
 
 
 
-#### 3-1-3. 둘 다 사용하는 경우(+ provider 분리)
+### 3-1-3. 둘 다 사용하는 경우(+ provider 분리)
 
 - **<각 컴포넌트 역할>**
 
@@ -196,21 +196,17 @@ useState, useReducer, useContext의 3가지 hooks로 상태를 관리할 때, �
 리액트 앱을 만들면서 CRA를 사용하지 않고 babel과 webpack을 이용하여 개발환경 설정을 직접해보았습니다.  
 공식문서를 찾아가면서 config파일 작성법, 개발 편의성을 높여주는 여러 플러그인의 사용법 등을 익혔습니다.
 
-##### 
 
 #### webpack.config 분리하고 성능 최적화 적용하는 법
 
 앱을 개발하면서 webpack.config를 개발용과 배포용 2개로 나누어서 사용하였습니다.  
 배포용 config는 splitChunks를 적용하여 브라우저 캐시를 활용한 성능 최적화를 시도해보았습니다.
 
-##### 
 
 #### 여러가지 React hooks 활용법
 
 상태 관리에 필요한 hooks 를 다양하게 사용해보면서 특징을 느껴보았습니다.  
 커스텀 hooks도 몇개 만들어보았는데, 로직을 hooks로 분리하는 걸 자꾸 시도해보아야겠다는 생각이 들었습니다.
-
-##### 
 
 ### 아쉬운 점 & 개선할 점
 
@@ -220,11 +216,9 @@ useState, useReducer, useContext의 3가지 hooks로 상태를 관리할 때, �
 그런데 chunk를 분리해서 컴포넌트 파일 자체를 나중에 받는 방법이 있다고 하더군요!  
 규모가 큰 어플리케이션을 구현할 때 보다 나은 사용자 경험을 위해 꼭 필요한 기능이라 생각되어 추후에 적용해볼 생각입니다.
 
-##### 
 
 #### atomic design의 적용이 어설펐던 점
 
 시작할 때 프로젝트 구조를 어떻게 잡아야하나 고민하던 중 atomic design을 접했는데요, 리액트에 딱 알맞지 않을까? 싶어서 나름 따라해보려 했지만 안 한것만 못하게 되어버린 것 같습니다.  
 구조 고민하다가 개발이 더뎌지는 경험을 했는데요, 다음에는 처음부터 완벽한 구조를 만들려하지 말고 만들어나가면서 재사용 가능한 부분은 분리하는 방식으로 진행해볼 생각입니다.
 
-##### 
