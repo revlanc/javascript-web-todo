@@ -124,21 +124,16 @@ useState, useReducer, useContext의 3가지 hooks로 상태를 관리할 때, �
 
 - **관심사의 분리**에 가장 어울리는 케이스라고 여겨집니다.
 
-  <img width="573" alt="reducer" src="https://user-images.githubusercontent.com/42905468/65819261-594fa480-e255-11e9-9319-be8792a7a086.png">
+  | <img width="573" alt="reducer" src="https://user-images.githubusercontent.com/42905468/65819261-594fa480-e255-11e9-9319-be8792a7a086.png"> |
+  | :----------------------------------------------------------: |
+  |          reducer는 오로지 로직에만 신경쓰게됩니다.           |
+  | <img width="729" alt="context" src="https://user-images.githubusercontent.com/42905468/65819287-a3388a80-e255-11e9-8fa7-f3a5b4f03de7.png"> |
+  | context는 컴포넌트간 전달이 필요한 state의 관리에 집중하게 됩니다. |
+  | <img width="532" alt="App" src="https://user-images.githubusercontent.com/42905468/65819259-58b70e00-e255-11e9-8627-1494dfcc149c.png"> |
+  | 최상위 컴포넌트는 전체적인 컴포넌트 구조를 확인하기 쉽게 렌더링 하는 역할을 담당합니다. |
+  | <img width="629" alt="view" src="https://user-images.githubusercontent.com/42905468/65819263-594fa480-e255-11e9-8dca-0f3b91e9ef0c.png"> |
+  | 각각의 view 컴포넌트는 '상태를 어떻게 보여줄 지'와 '액션을 트리거'하는 데에만 집중합니다. |
 
-- reducer는 오로지 로직에만 신경쓰게됩니다.
-
-<img width="729" alt="context" src="https://user-images.githubusercontent.com/42905468/65819287-a3388a80-e255-11e9-8fa7-f3a5b4f03de7.png">
-
-- context는 컴포넌트간 전달이 필요한 state의 관리에 집중하게 됩니다.
-
-<img width="532" alt="App" src="https://user-images.githubusercontent.com/42905468/65819259-58b70e00-e255-11e9-8627-1494dfcc149c.png">
-
-- 최상위 컴포넌트는 전체적인 컴포넌트 구조를 확인하기 쉽게 렌더링 하는 역할을 담당합니다.
-
-  <img width="629" alt="view" src="https://user-images.githubusercontent.com/42905468/65819263-594fa480-e255-11e9-8dca-0f3b91e9ef0c.png">
-
-- 각각의 view 컴포넌트는 '상태를 어떻게 보여줄 지'와 '액션을 트리거'하는 데에만 집중합니다.
 
 > 필요에 따라 적절하게 사용하는 것이 좋겠지만, 일단 reducer를 사용하면 dispatch 메서드가 강제 되고,
 > view컴포넌트에서 액션을 트리거하는 일관된 메시지 흐름을 갖게되어 코드가 정돈되는 효과가 있다고 느꼈습니다.
