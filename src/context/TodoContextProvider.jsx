@@ -14,10 +14,7 @@ const TodoContext = createContext();
 const DispatchContext = createContext();
 
 export const useTodoContext = () => useContext(TodoContext);
-export const useDispatch = () => {
-  const dispatch = useContext(DispatchContext);
-  return useCallback(({ type, payload }) => dispatch({ type, payload }), [dispatch]);
-};
+export const useDispatch = () => useContext(DispatchContext);
 
 const TodoContextProvider = ({ children }) => {
   const [todos, dispatch] = useReducer(reducer, []);
