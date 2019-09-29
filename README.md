@@ -180,7 +180,7 @@ useState, useReducer, useContext의 3가지 hooks로 상태를 관리할 때, �
 
 - 처음에 useMemo를 접했을 때는 단순히 *useCallback은 함수에 사용하고 useMemo는 값에 사용되는 메모이제이션 hooks이다!* 라고 생각을 했습니다.
 - 그런데 같이 공부하는 친구 하나가 *useMemo랑 useEffect랑 비슷한 것 같지 않아요?* 라는 질문을 던졌고 useMemo를 잘못 이해했다는 것을 깨달았습니다.  
-  그 차이를 이해하기 위해 공식문서 등 여러 자료도 찾아보고 예제코드도 만들어보면서 글을 하나 써봤습니다.([useMemo vs. useEffect](https://github.com/revlanc/letswrite/blob/master/useMemo와 useEffect.md))
+  그 차이를 이해하기 위해 공식문서 등 여러 자료도 찾아보고 예제코드도 만들어보면서 글을 하나 써봤습니다.([useMemo vs. useEffect](https://github.com/revlanc/letswrite/blob/master/useMemo%E1%84%8B%E1%85%AA%20useEffect.md))
 - 두 hooks의 동작을 살펴보면서 useEffect의 콜백은 렌더링 이후에 실행되고 useMemo의 콜백은 렌더링 도중에 실행된다는 점, useEffect의 콜백에서 state를 변경할 경우 추가적인 렌더링을 발생시킨다는 점 등을 배웠습니다.
 
 ##### 
